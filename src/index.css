@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  color: #ffffff;
+  background-color: #080b10;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.root, header, aside {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.btn {
+  @apply px-6 py-4 rounded-lg;
+}
+.btn > span {
+  @apply block text-sm font-semibold;
+}
+
+.btn.btn-primary {
+  @apply bg-primary-gradient shadow-primary-40;
+}
+
+.btn.btn-kaspi {
+  @apply bg-kaspi;
+}
+
+.btn.btn-white {
+  @apply bg-white;
+
+  > svg > path {
+    @apply fill-white;
+  }
+}
+.btn.btn-white > span {
+  @apply text-dark;
+
+  > svg > path {
+    @apply fill-dark;
+  }
+}
+
+.btn:disabled {
+  @apply bg-btn-disabled;
+
+  > svg > path {
+    @apply fill-disabled;
+  }
+
+  > span {
+    @apply text-disabled;
+  }
+}
+
+a {
+  @apply text-primary underline;
+}
+
+input:not([type="checkbox"]),
+.textarea,
+.select {
+  @apply p-4 rounded-lg bg-dark-3 focus-visible:outline focus-visible:outline-primary;
+}
+
+input[type="checkbox"] {
+  @apply h-6 w-6 rounded-[4px] border border-[#4b4d50] bg-dark-3 accent-primary;
+}
+
+.textarea {
+  resize: none;
+}
+
+.select {
+  appearance: none;
+}
