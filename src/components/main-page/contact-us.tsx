@@ -6,13 +6,13 @@ export default function ContactUs() {
       </h1>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
-          <h6>phone</h6>
+          <h6 className="text-white-50">Телефон</h6>
           <a className="text-2xl" href="tel:+77772845090">
             +7 777 284 50 90
           </a>
         </div>
         <div className="flex flex-col gap-2">
-          <h6>email</h6>
+          <h6 className="text-white-50">Эл. почта</h6>
           <a className="text-2xl" href="mailto:info@garyshker.com">
             info@garyshker.com
           </a>

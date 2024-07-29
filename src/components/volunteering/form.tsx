@@ -46,12 +46,13 @@ export default function VolunteerForm() {
     formData.append("entry.738117113", age);
     formData.append("entry.1622257365", role);
     formData.append("entry.640290452", aboutSelf);
-    file && formData.append("entry.1752715525", file);
+    // file && formData.append("entry.1752715525", file);
 
     fetch(
-      "https://docs.google.com/forms/u/0/d/1O3mT2LdQzytq6WP6gxEK-VpiTwm0Vd1GY6XqhvynU48/formResponse",
+      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdOif0wZ9jdRwsNIx-FCT3KMgyG-qegzUJPVbEOnJgRP9OMow/formResponse",
       {
         method: "POST",
+        mode: "no-cors",
         body: formData,
       }
     )
@@ -118,11 +119,11 @@ export default function VolunteerForm() {
                 Выберите роль
               </option>
               <option value="Волонтер Cosmosomke">Волонтер Cosmosomke</option>
-              <option value="Project Manager">Проектный менеджер</option>
-              <option value="Sales Manager">Менеджер по продажам</option>
+              <option value="Проектный менеджер">Проектный менеджер</option>
+              <option value="Менеджер по продажам">Менеджер по продажам</option>
               <option value="SMM">SMM</option>
-              <option value="Designer">Дизайнер</option>
-              <option value="Developer">Разработчик</option>
+              <option value="Дизайнер">Дизайнер</option>
+              <option value="Разработчик">Разработчик</option>
             </select>
           </div>
           <div className="flex flex-col gap-3 text-sm">
@@ -134,7 +135,7 @@ export default function VolunteerForm() {
               disabled={isLoading}
             />
           </div>
-          <div className="flex flex-col gap-3 text-sm">
+          {/* <div className="flex flex-col gap-3 text-sm">
             <label>Дополнительные файлы (опционально)</label>
             {file && (
               <div className="flex items-center gap-4 p-4 bg-dark-4 rounded-lg">
@@ -161,7 +162,7 @@ export default function VolunteerForm() {
               onChange={(e) => setFile(e.target.files ? e.target.files[0] : "")}
               disabled={isLoading}
             />
-          </div>
+          </div> */}
         </div>
         <button
           className="btn btn-white"

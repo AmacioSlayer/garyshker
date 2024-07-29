@@ -46,12 +46,13 @@ export default function PartnershipForm() {
     formData.append("entry.115642553", `+${phone}`);
     formData.append("entry.104099307", email);
     formData.append("entry.1296827638", aboutSelf);
-    file && formData.append("entry.1747970951", file);
+    // file && formData.append("entry.1747970951", file);
 
     fetch(
-      "https://docs.google.com/forms/u/0/d/13D41OBjDibCOiHquH5GUTk4FPjwi9_pZCGd3qIbuhDs/formResponse",
+      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSf-t6mM1sxTYu3K_dnNPhrTDloaTLqr2ARgkPq5TWjpzqM9IA/formResponse",
       {
         method: "POST",
+        mode: "no-cors",
         body: formData,
       }
     )
@@ -121,7 +122,7 @@ export default function PartnershipForm() {
               disabled={isLoading}
             />
           </div>
-          <div className="flex flex-col gap-3 text-sm">
+          {/* <div className="flex flex-col gap-3 text-sm">
             <label>Дополнительные файлы (опционально)</label>
             {file && (
               <div className="flex items-center gap-4 p-4 bg-dark-4 rounded-lg">
@@ -148,7 +149,7 @@ export default function PartnershipForm() {
               onChange={(e) => setFile(e.target.files ? e.target.files[0] : "")}
               disabled={isLoading}
             />
-          </div>
+          </div> */}
         </div>
         <button
           className="btn btn-white"

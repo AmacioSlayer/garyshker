@@ -66,13 +66,14 @@ export default function ApplyForBackpack() {
     formData.append("entry.738117113", age?.toString() || "");
     formData.append("entry.171030146", parentName);
     formData.append("entry.1449421679", address);
-    formData.append("entry.1209060155", phone);
-    fileUploadState.files.length && formData.append("entry.640290452", fileUploadState.files[0]);
+    formData.append("entry.1209060155", `+${phone}`);
+    // fileUploadState.files.length && formData.append("entry.640290452", fileUploadState.files[0]);
 
     fetch(
       "https://docs.google.com/forms/u/0/d/1EqJVylf_7tBo1Bk1U-6Cqdrrz5K-IAX0C7cIwpAApNs/formResponse",
       {
         method: "POST",
+        mode: "no-cors",
         body: formData,
       }
     )
