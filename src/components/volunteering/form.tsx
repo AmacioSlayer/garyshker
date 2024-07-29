@@ -46,16 +46,12 @@ export default function VolunteerForm() {
     formData.append("entry.738117113", age);
     formData.append("entry.1622257365", role);
     formData.append("entry.640290452", aboutSelf);
-    formData.append("entry.1752715525", file);
+    file && formData.append("entry.1752715525", file);
 
     fetch(
-      "https://docs.google.com/forms/d/e/1O3mT2LdQzytq6WP6gxEK-VpiTwm0Vd1GY6XqhvynU48/formResponse",
+      "https://docs.google.com/forms/u/0/d/1O3mT2LdQzytq6WP6gxEK-VpiTwm0Vd1GY6XqhvynU48/formResponse",
       {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: formData,
       }
     )
@@ -127,7 +123,6 @@ export default function VolunteerForm() {
               <option value="SMM">SMM</option>
               <option value="Designer">Дизайнер</option>
               <option value="Developer">Разработчик</option>
-              <option value="Other">Другое</option>
             </select>
           </div>
           <div className="flex flex-col gap-3 text-sm">

@@ -12,7 +12,7 @@ export default function HeroSection() {
   ];
 
   return (
-    <section className="flex flex-col h-screen bg-hero bg-no-repeat bg-contain">
+    <section className="flex flex-col h-screen bg-hero bg-no-repeat bg-cover">
       <Header />
       <div className="flex flex-col px-4 mt-16 items-center justify-evenly grow">
         <h1 className="text-center text-[32px] font-semibold">

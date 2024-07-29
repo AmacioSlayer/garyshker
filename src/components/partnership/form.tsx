@@ -46,15 +46,12 @@ export default function PartnershipForm() {
     formData.append("entry.115642553", `+${phone}`);
     formData.append("entry.104099307", email);
     formData.append("entry.1296827638", aboutSelf);
+    file && formData.append("entry.1747970951", file);
 
     fetch(
-      "https://docs.google.com/forms/d/e/13D41OBjDibCOiHquH5GUTk4FPjwi9_pZCGd3qIbuhDs/formResponse",
+      "https://docs.google.com/forms/u/0/d/13D41OBjDibCOiHquH5GUTk4FPjwi9_pZCGd3qIbuhDs/formResponse",
       {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: formData,
       }
     )

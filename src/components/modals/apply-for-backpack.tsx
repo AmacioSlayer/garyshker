@@ -62,21 +62,17 @@ export default function ApplyForBackpack() {
 
     const formData = new FormData();
 
-    formData.append("", name);
-    formData.append("", age?.toString() || "");
-    formData.append("", parentName);
-    formData.append("", address);
-    formData.append("", phone);
-    formData.append("", fileUploadState.files[0]);
+    formData.append("entry.1628403620", name);
+    formData.append("entry.738117113", age?.toString() || "");
+    formData.append("entry.171030146", parentName);
+    formData.append("entry.1449421679", address);
+    formData.append("entry.1209060155", phone);
+    fileUploadState.files.length && formData.append("entry.640290452", fileUploadState.files[0]);
 
     fetch(
-      "https://docs.google.com/forms/d/e/1EqJVylf_7tBo1Bk1U-6Cqdrrz5K-IAX0C7cIwpAApNs/formResponse",
+      "https://docs.google.com/forms/u/0/d/1EqJVylf_7tBo1Bk1U-6Cqdrrz5K-IAX0C7cIwpAApNs/formResponse",
       {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: formData,
       }
     )
@@ -147,7 +143,7 @@ export default function ApplyForBackpack() {
                 disabled={isLoading}
               />
             </div>
-            <div className="flex flex-col gap-3 text-sm">
+            {/* <div className="flex flex-col gap-3 text-sm">
               <label>Документы</label>
               <div className="text-white-50">
                 <h6>Прикрепите следующий список документов:</h6>
@@ -189,7 +185,7 @@ export default function ApplyForBackpack() {
                 onChange={handleFileChange}
                 disabled={isLoading}
               />
-            </div>
+            </div> */}
           </div>
           <button
             className="btn btn-white"
@@ -200,7 +196,6 @@ export default function ApplyForBackpack() {
               !parentName ||
               !address ||
               phone.length !== 11 ||
-              fileUploadState.files.length === 0 ||
               isLoading
             }
           >
