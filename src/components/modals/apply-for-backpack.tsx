@@ -85,7 +85,7 @@ export default function ApplyForBackpack() {
   };
 
   return (
-    <div className="absolute flex flex-col inset-0 bg-dark z-20">
+    <div className="modal absolute flex flex-col inset-0 bg-dark z-20">
       <div className="flex items-center justify-between p-4">
         <h4>Получить рюкзак</h4>
         <button onClick={goBack}>

@@ -32,7 +32,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-#root, header, aside {
+#root, header, aside, .modal {
   max-width: 500px;
   margin: 0 auto;
 }

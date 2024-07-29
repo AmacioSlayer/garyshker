@@ -40,7 +40,7 @@ export default function DonateModal() {
   }, [bpCount]);
 
   return (
-    <div className="absolute flex flex-col inset-0 bg-dark z-20">
+    <div className="modal absolute flex flex-col inset-0 bg-dark z-20">
       <div className="flex items-center justify-between p-4">
         <h4>Сделать пожертвование</h4>
         <div className="cursor-pointer" onClick={goBack}>
