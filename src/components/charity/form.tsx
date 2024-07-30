@@ -42,7 +42,7 @@ export default function CharityForm() {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        {/* <div className="flex items-center gap-3">
           <input
             id="agree"
             type="checkbox"
@@ -52,12 +52,13 @@ export default function CharityForm() {
           <label htmlFor="agree" className="text-sm">
             Я согласен(-на) с <a>Условиями Оферты</a>
           </label>
-        </div>
+        </div> */}
         <div className="flex flex-col gap-6">
           <button
             className="btn btn-kaspi flex items-center justify-center gap-[10px] p-5"
             onClick={navigateToKaspi}
-            disabled={!sum || !agree}
+            disabled={!sum}
+            // disabled={!sum || !agree}
           >
             <KaspiIcon />
             <span>Kaspi Платежи</span>

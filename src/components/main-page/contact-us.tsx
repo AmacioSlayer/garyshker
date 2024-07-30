@@ -1,6 +1,6 @@
 export default function ContactUs() {
   return (
-    <section className="flex flex-col gap-16 px-4 pt-8 pb-16">
+    <section className="flex flex-col gap-16 px-4 pt-8 pb-16" id="contact-us">
       <h1 className="text-[32px] font-semibold">
         Давайте строить сплоченное общество вместе!
       </h1>

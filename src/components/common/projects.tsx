@@ -16,7 +16,7 @@ export default function Projects({
 
   return (
     <section
-      id="projects-list"
+      id="projects"
       className={`flex flex-col gap-6 ${
         parent === "/projects" ? "px-4 py-8" : "p-4"
       }`}

@@ -16,6 +16,13 @@ export default function VolunteerForm() {
   const [aboutSelf, setAboutSelf] = useState<string>("");
   const [file, setFile] = useState<File | "">("");
 
+  const [isNameValid, setNameValid] = useState<boolean>(true);
+  const [isPhoneValid, setPhoneValid] = useState<boolean>(true);
+  const [isTelegramValid, setTelegramValid] = useState<boolean>(true);
+  const [isAgeValid, setAgeValid] = useState<boolean>(true);
+  const [isRoleValid, setRoleValid] = useState<boolean>(true);
+  const [isAboutSelfValid, setAboutSelfValid] = useState<boolean>(true);
+
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const RemoveNonNumericCharacters = (input: string): string => {
@@ -25,6 +32,7 @@ export default function VolunteerForm() {
   const onPhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const cleanedPhoneNumber = RemoveNonNumericCharacters(event.target.value);
     setPhone(cleanedPhoneNumber);
+    setPhoneValid(true);
   };
 
   const clearFile = () => {
@@ -36,31 +44,73 @@ export default function VolunteerForm() {
 
   const submitForm = async (e: any) => {
     e.preventDefault();
-    setLoading(true);
+    if (validateForm()) {
+      setLoading(true);
 
-    const formData = new FormData();
+      const formData = new FormData();
 
-    formData.append("entry.171030146", name);
-    formData.append("entry.1209060155", `+${phone}`);
-    formData.append("entry.31253993", telegram);
-    formData.append("entry.738117113", age);
-    formData.append("entry.1622257365", role);
-    formData.append("entry.640290452", aboutSelf);
-    // file && formData.append("entry.1752715525", file);
+      formData.append("entry.171030146", name);
+      formData.append("entry.1209060155", `+${phone}`);
+      formData.append("entry.31253993", telegram);
+      formData.append("entry.738117113", age);
+      formData.append("entry.1622257365", role);
+      formData.append("entry.640290452", aboutSelf);
+      // file && formData.append("entry.1752715525", file);
 
-    fetch(
-      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdOif0wZ9jdRwsNIx-FCT3KMgyG-qegzUJPVbEOnJgRP9OMow/formResponse",
-      {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      }
-    )
-      .then(() => {
-        navigate("/form-success");
-        setLoading(false);
-      })
-      .catch((err) => alert(err));
+      fetch(
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdOif0wZ9jdRwsNIx-FCT3KMgyG-qegzUJPVbEOnJgRP9OMow/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        }
+      )
+        .then(() => {
+          navigate("/form-success");
+          setLoading(false);
+        })
+        .catch((err) => alert(err));
+    }
+  };
+
+  const validateForm = () => {
+    if (name) {
+      setNameValid(true);
+    } else {
+      setNameValid(false);
+    }
+    if (phone.length === 11) {
+      setPhoneValid(true);
+    } else {
+      setPhoneValid(false);
+    }
+    if (telegram) {
+      setTelegramValid(true);
+    } else {
+      setTelegramValid(false);
+    }
+    if (age) {
+      setAgeValid(true);
+    } else {
+      setAgeValid(false);
+    }
+    if (role) {
+      setRoleValid(true);
+    } else {
+      setRoleValid(false);
+    }
+    if (aboutSelf) {
+      setAboutSelfValid(true);
+    } else {
+      setAboutSelfValid(false);
+    }
+
+    if (name && phone.length === 11 && telegram && age && role && aboutSelf) {
+      return true;
+    } else {
+      alert("Заполните форму правильно!");
+      return false;
+    }
   };
 
   return (
@@ -71,15 +121,20 @@ export default function VolunteerForm() {
           <div className="flex flex-col gap-3 text-sm">
             <label>Имя</label>
             <input
+              className={isNameValid ? "" : "invalid"}
               type="text"
               placeholder="Введите имя"
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                setNameValid(true);
+              }}
               disabled={isLoading}
             />
           </div>
           <div className="flex flex-col gap-3 text-sm">
             <label>Номер телефона</label>
             <InputMask
+              className={isPhoneValid ? "" : "invalid"}
               type="tel"
               placeholder="+7"
               mask="+7 999 999 99 99"
@@ -92,27 +147,38 @@ export default function VolunteerForm() {
           <div className="flex flex-col gap-3 text-sm">
             <label>Telegram / Instagram / WhatsApp</label>
             <input
+              className={isTelegramValid ? "" : "invalid"}
               type="text"
               placeholder="Введите контактные данные"
-              onChange={(e) => setTelegram(e.target.value)}
+              onChange={(e) => {
+                setTelegram(e.target.value);
+                setTelegramValid(true);
+              }}
               disabled={isLoading}
             />
           </div>
           <div className="flex flex-col gap-3 text-sm">
             <label>Возраст</label>
             <input
+              className={isAgeValid ? "" : "invalid"}
               type="text"
               placeholder="Введите Ваш возраст"
-              onChange={(e) => setAge(e.target.value)}
+              onChange={(e) => {
+                setAge(e.target.value);
+                setAgeValid(true);
+              }}
               disabled={isLoading}
             />
           </div>
           <div className="flex flex-col gap-3 text-sm">
             <label>Роль</label>
             <select
-              className="select"
+              className={`select ${isRoleValid ? "" : "invalid"}`}
               defaultValue={""}
-              onChange={(e) => setRole(e.target.value)}
+              onChange={(e) => {
+                setRole(e.target.value);
+                setRoleValid(true);
+              }}
               disabled={isLoading}
             >
               <option value="" disabled>
@@ -129,9 +195,12 @@ export default function VolunteerForm() {
           <div className="flex flex-col gap-3 text-sm">
             <label>О себе</label>
             <textarea
-              className="textarea h-40"
+              className={`textarea h-40 ${isRoleValid ? "" : "invalid"}`}
               placeholder="Вкратце о себе"
-              onChange={(e) => setAboutSelf(e.target.value)}
+              onChange={(e) => {
+                setAboutSelf(e.target.value);
+                setAboutSelfValid(true);
+              }}
               disabled={isLoading}
             />
           </div>
@@ -164,18 +233,14 @@ export default function VolunteerForm() {
             />
           </div> */}
         </div>
+        <p className="text-sm text-center text-white-50">
+          Нажимая "Оставить заявку" вы соглашаетесь на обработку персональных
+          данных
+        </p>
         <button
           className="btn btn-white"
           onClick={submitForm}
-          disabled={
-            !name ||
-            phone.length !== 11 ||
-            !telegram ||
-            !age ||
-            !role ||
-            !aboutSelf ||
-            isLoading
-          }
+          disabled={isLoading}
         >
           <span>Оставить заявку</span>
         </button>

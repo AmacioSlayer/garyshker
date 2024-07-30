@@ -22,6 +22,12 @@ export default function ApplyForBackpack() {
     files: [],
   });
 
+  const [isNameValid, setNameValid] = useState<boolean>(true);
+  const [isAgeValid, setAgeValid] = useState<boolean>(true);
+  const [isParentNameValid, setParentNameValid] = useState<boolean>(true);
+  const [isAddressValid, setAddressValid] = useState<boolean>(true);
+  const [isPhoneValid, setPhoneValid] = useState<boolean>(true);
+
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const RemoveNonNumericCharacters = (input: string): string => {
@@ -31,6 +37,7 @@ export default function ApplyForBackpack() {
   const onPhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const cleanedPhoneNumber = RemoveNonNumericCharacters(event.target.value);
     setPhone(cleanedPhoneNumber);
+    setPhoneValid(true);
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,30 +65,67 @@ export default function ApplyForBackpack() {
 
   const submitForm = async (e: any) => {
     e.preventDefault();
-    setLoading(true);
+    if (validateForm()) {
+      setLoading(true);
 
-    const formData = new FormData();
+      const formData = new FormData();
 
-    formData.append("entry.1628403620", name);
-    formData.append("entry.738117113", age?.toString() || "");
-    formData.append("entry.171030146", parentName);
-    formData.append("entry.1449421679", address);
-    formData.append("entry.1209060155", `+${phone}`);
-    // fileUploadState.files.length && formData.append("entry.640290452", fileUploadState.files[0]);
+      formData.append("entry.1628403620", name);
+      formData.append("entry.738117113", age?.toString() || "");
+      formData.append("entry.171030146", parentName);
+      formData.append("entry.1449421679", address);
+      formData.append("entry.1209060155", `+${phone}`);
+      // fileUploadState.files.length && formData.append("entry.640290452", fileUploadState.files[0]);
 
-    fetch(
-      "https://docs.google.com/forms/u/0/d/1EqJVylf_7tBo1Bk1U-6Cqdrrz5K-IAX0C7cIwpAApNs/formResponse",
-      {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
-      }
-    )
-      .then(() => {
-        navigate("/form-success");
-        setLoading(false);
-      })
-      .catch((err) => alert(err));
+      fetch(
+        "https://docs.google.com/forms/u/0/d/1EqJVylf_7tBo1Bk1U-6Cqdrrz5K-IAX0C7cIwpAApNs/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formData,
+        }
+      )
+        .then(() => {
+          navigate("/form-success");
+          setLoading(false);
+        })
+        .catch((err) => alert(err));
+    }
+  };
+
+  const validateForm = () => {
+    if (name) {
+      setNameValid(true);
+    } else {
+      setNameValid(false);
+    }
+    if (age) {
+      setAgeValid(true);
+    } else {
+      setAgeValid(false);
+    }
+    if (parentName) {
+      setParentNameValid(true);
+    } else {
+      setParentNameValid(false);
+    }
+    if (address) {
+      setAddressValid(true);
+    } else {
+      setAddressValid(false);
+    }
+    if (phone.length === 11) {
+      setPhoneValid(true);
+    } else {
+      setPhoneValid(false);
+    }
+
+    if (name && age && parentName && address && phone.length === 11) {
+      return true;
+    } else {
+      alert("Заполните форму правильно!");
+      return false;
+    }
   };
 
   return (
@@ -99,42 +143,59 @@ export default function ApplyForBackpack() {
             <div className="flex flex-col gap-3 text-sm">
               <label>ФИО ребенка</label>
               <input
+                className={isNameValid ? "" : "invalid"}
                 type="text"
                 placeholder="Введите ФИО"
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => {
+                  setName(e.target.value);
+                  setNameValid(true);
+                }}
                 disabled={isLoading}
               />
             </div>
             <div className="flex flex-col gap-3 text-sm">
               <label>Возраст ребенка</label>
               <input
+                className={isAgeValid ? "" : "invalid"}
                 type="text"
                 placeholder="Укажите возраст ребенка"
-                onChange={(e) => setAge(+e.target.value)}
+                onChange={(e) => {
+                  setAge(+e.target.value);
+                  setAgeValid(true);
+                }}
                 disabled={isLoading}
               />
             </div>
             <div className="flex flex-col gap-3 text-sm">
               <label>ФИО родителя / заявителя</label>
               <input
+                className={isParentNameValid ? "" : "invalid"}
                 type="text"
                 placeholder="Введите ФИО"
-                onChange={(e) => setParentName(e.target.value)}
+                onChange={(e) => {
+                  setParentName(e.target.value);
+                  setParentNameValid(true);
+                }}
                 disabled={isLoading}
               />
             </div>
             <div className="flex flex-col gap-3 text-sm">
               <label>Область, город, населенный пункт</label>
               <input
+                className={isAddressValid ? "" : "invalid"}
                 type="text"
                 placeholder="Укажите место проживания"
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                  setAddressValid(true);
+                }}
                 disabled={isLoading}
               />
             </div>
             <div className="flex flex-col gap-3 text-sm">
               <label>Номер телефона</label>
               <InputMask
+                className={isPhoneValid ? "" : "invalid"}
                 type="tel"
                 placeholder="+7"
                 mask="+7 999 999 99 99"
@@ -188,17 +249,14 @@ export default function ApplyForBackpack() {
               />
             </div> */}
           </div>
+          <p className="text-sm text-center text-white-50">
+            Нажимая "Оставить заявку" вы соглашаетесь на обработку персональных
+            данных
+          </p>
           <button
             className="btn btn-white"
             onClick={submitForm}
-            disabled={
-              !name ||
-              !age ||
-              !parentName ||
-              !address ||
-              phone.length !== 11 ||
-              isLoading
-            }
+            disabled={isLoading}
           >
             <span>Оставить заявку</span>
           </button>

@@ -19,6 +19,7 @@ module.exports = {
         "primary-20": "rgba(255, 168, 0, 0.2)",
         "success": "#a0d911",
         "success-20": "rgba(160, 217, 17, 0.2)",
+        "danger": "#f5222d",
         "white-5": "rgba(255, 255, 255, 0.05)",
         "white-8": "rgba(255, 255, 255, 0.08)",
         "white-10": "rgba(255, 255, 255, 0.1)",
