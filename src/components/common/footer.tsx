@@ -9,16 +9,24 @@ export default function Footer() {
       <div className="flex gap-10">
         <ul className="flex flex-col gap-6">
           <li>
-            <a href="#">Главная</a>
+            <a href="#" className="text-white no-underline">
+              Главная
+            </a>
           </li>
           <li>
-            <a href="#about">О проекте</a>
+            <a href="#about" className="text-white no-underline">
+              О проекте
+            </a>
           </li>
           <li>
-            <a href="#projects">Проекты</a>
+            <a href="#projects" className="text-white no-underline">
+              Проекты
+            </a>
           </li>
           <li>
-            <a href="#contact-us">Контакты</a>
+            <a href="#contact-us" className="text-white no-underline">
+              Контакты
+            </a>
           </li>
           <li>Документация НКО</li>
         </ul>

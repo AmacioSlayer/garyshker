@@ -145,7 +145,7 @@ export default function VolunteerForm() {
             />
           </div>
           <div className="flex flex-col gap-3 text-sm">
-            <label>Telegram / Instagram / WhatsApp</label>
+            <label>Telegram / Instagram</label>
             <input
               className={isTelegramValid ? "" : "invalid"}
               type="text"
@@ -190,6 +190,7 @@ export default function VolunteerForm() {
               <option value="SMM">SMM</option>
               <option value="Дизайнер">Дизайнер</option>
               <option value="Разработчик">Разработчик</option>
+              <option value="Другое">Другое</option>
             </select>
           </div>
           <div className="flex flex-col gap-3 text-sm">
