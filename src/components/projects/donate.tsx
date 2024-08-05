@@ -11,12 +11,12 @@ export default function Donate() {
             <div className="flex items-center gap-5">
               <div className="flex flex-col gap-[10px]">
                 <h6 className="text-sm text-white-40">Цель</h6>
-                <span className="text-lg font-semibold">15 000 000 ₸</span>
+                <span className="text-lg font-semibold">{(18979000).toLocaleString()} ₸</span>
               </div>
               <hr className="h-5 border border-white-20" />
               <div className="flex flex-col gap-[10px]">
                 <h6 className="text-sm text-white-40">Собрано</h6>
-                <span className="text-lg font-semibold">3 750 000 ₸</span>
+                <span className="text-lg font-semibold">{(11667157).toLocaleString()} ₸</span>
               </div>
             </div>
           </div>

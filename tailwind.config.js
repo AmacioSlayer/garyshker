@@ -34,6 +34,7 @@ module.exports = {
         "dark-4": "#2c2e33",
         "gray": "#a8acba",
         "dark-gray": "#2d3034",
+        "dark-gray-2": "#303030",
         "dark-gray-20": "rgba(168, 172, 186, 0.2)",
         "shadow": "rgba(48, 48, 48, 0.4)",
         "kaspi": "#f24535",

@@ -67,7 +67,7 @@ aside,
   @apply bg-white;
 
   > svg > path {
-    @apply fill-white;
+    @apply fill-black;
   }
 }
 .btn.btn-white > span {

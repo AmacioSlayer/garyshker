@@ -28,7 +28,12 @@ export default function Footer() {
               Контакты
             </a>
           </li>
-          <li>Документация НКО</li>
+          <li
+            className="cursor-pointer"
+            onClick={() => navigate("/nco-documentation")}
+          >
+            Документация НКО
+          </li>
         </ul>
         <ul className="flex flex-col gap-6">
           <li className="cursor-pointer" onClick={() => navigate("/charity")}>

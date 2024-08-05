@@ -143,7 +143,10 @@ export default function Header() {
           </div>
           <div>
             <h6 className="text-sm text-white-50">Остальное</h6>
-            <div className="flex items-center gap-[10px] py-4 border-b border-white-20">
+            <div
+              className="flex items-center gap-[10px] py-4 border-b border-white-20 cursor-pointer"
+              onClick={() => navigate("/nco-documentation")}
+            >
               <span className="grow text-[18px] font-medium">
                 Документация НКО
               </span>

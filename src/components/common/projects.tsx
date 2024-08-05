@@ -74,20 +74,21 @@ export default function Projects({
               </div>
             </div>
             <div className="flex items-center gap-4">
-              {project.is_active && (
+              {(project.is_active || project.is_ended) && (
                 <button
-                  className="btn btn-primary grow"
+                  className={`btn grow ${
+                    project.is_active
+                      ? "btn-primary"
+                      : !project.is_active && project.is_ended
+                      ? "btn-white"
+                      : ""
+                  }`}
                   onClick={() =>
                     navigate(`${parent}/${project.url}`, {
                       state: { project: project },
                     })
                   }
                 >
-                  <span>Узнать больше</span>
-                </button>
-              )}
-              {!project.is_active && project.is_ended && (
-                <button className="btn btn-white grow" disabled>
                   <span>Узнать больше</span>
                 </button>
               )}

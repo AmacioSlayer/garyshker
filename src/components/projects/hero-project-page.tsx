@@ -14,18 +14,16 @@ export default function HeroProjectPage({
   return (
     <section className="flex flex-col h-screen bg-cosmosomke bg-no-repeat bg-contain">
       <Header />
-      <div className="flex flex-col items-center justify-end gap-8 px-4 py-8 mt-16 grow">
+      <div className="flex flex-col justify-end gap-8 px-4 py-8 mt-16 grow">
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-3">
-            <h1 className="text-center text-4xl font-semibold">
-              {projectData.name}
-            </h1>
+          <div className="flex flex-col gap-3 text-center">
+            <h1 className="text-4xl font-semibold">{projectData.name}</h1>
             <p>
               <span className="text-primary">{projectData.primary_text}</span>{" "}
               {projectData.secondary_text}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex self-center gap-2">
             {(projectData.is_active ||
               projectData.end_date ||
               projectData.is_soon) && (
@@ -65,20 +63,24 @@ export default function HeroProjectPage({
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-6 w-full">
-          <button
-            className="btn btn-primary p-5"
-            onClick={() => navigate(`/projects/${"cosmosomke"}/donate`)}
-          >
-            <span>Сделать пожертвование</span>
-          </button>
-          <button
-            className="btn btn-white p-5"
-            onClick={() => navigate("/projects/cosmosomke/apply-for-backpack")}
-          >
-            <span>Получить рюкзак</span>
-          </button>
-        </div>
+        {projectData.is_active && (
+          <div className="flex flex-col gap-6 w-full">
+            <button
+              className="btn btn-primary p-5"
+              onClick={() => navigate(`/projects/${"cosmosomke"}/donate`)}
+            >
+              <span>Сделать пожертвование</span>
+            </button>
+            <button
+              className="btn btn-white p-5"
+              onClick={() =>
+                navigate("/projects/cosmosomke/apply-for-backpack")
+              }
+            >
+              <span>Получить рюкзак</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
