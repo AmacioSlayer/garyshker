@@ -11,6 +11,9 @@ import Partnership from "components/partnership";
 import FormSuccess from "components/common/form-success";
 import ProjectPage from "components/projects/project-page";
 import EndedProject from "components/projects/ended-project";
+import Policy from "components/common/policy";
+import PublicOffer from "components/common/public-offer";
+import PaymentPolicy from "components/common/payment-policy";
 import DonateModal from "components/modals/donate-modal";
 import ApplyForBackpack from "components/modals/apply-for-backpack";
 
@@ -27,6 +30,9 @@ const App = () => {
         <Route path="/projects/:name" element={<ProjectPage />} />
         <Route path="/projects/:name/:url" element={<EndedProject />} />
         <Route path="/projects/:name/donate" element={<DonateModal />} />
+        <Route path="/policy" element={<Policy />} />
+        <Route path="/public-offer" element={<PublicOffer />} />
+        <Route path="/payment-policy" element={<PaymentPolicy />} />
         <Route
           path="/projects/cosmosomke/apply-for-backpack"
           element={<ApplyForBackpack />}

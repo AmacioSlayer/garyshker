@@ -8,34 +8,9 @@ export default function Footer() {
     <footer className="flex flex-col gap-10 px-4 py-10 border-t border-dark-gray">
       <div className="flex gap-10">
         <ul className="flex flex-col gap-6">
-          <li>
-            <a href="#" className="text-white no-underline">
-              Главная
-            </a>
+          <li className="cursor-pointer" onClick={() => navigate("/")}>
+            Главная
           </li>
-          <li>
-            <a href="#about" className="text-white no-underline">
-              О проекте
-            </a>
-          </li>
-          <li>
-            <a href="#projects" className="text-white no-underline">
-              Проекты
-            </a>
-          </li>
-          <li>
-            <a href="#contact-us" className="text-white no-underline">
-              Контакты
-            </a>
-          </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => navigate("/nco-documentation")}
-          >
-            Документация НКО
-          </li>
-        </ul>
-        <ul className="flex flex-col gap-6">
           <li className="cursor-pointer" onClick={() => navigate("/charity")}>
             Благотворительность
           </li>
@@ -50,6 +25,29 @@ export default function Footer() {
             onClick={() => navigate("/partnership")}
           >
             Партнерство
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => navigate("/nco-documentation")}
+          >
+            Документация НКО
+          </li>
+        </ul>
+        <ul className="flex flex-col gap-6">
+          <li className="cursor-pointer" onClick={() => navigate("/policy")}>
+            Политика конфиденциальности
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => navigate("/public-offer")}
+          >
+            Публичная оферта
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => navigate("/payment-policy")}
+          >
+            Политика онлайн платежей
           </li>
         </ul>
       </div>

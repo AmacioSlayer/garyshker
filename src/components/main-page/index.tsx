@@ -20,42 +20,42 @@ export default function MainPage() {
       is_ended: false,
       is_soon: false,
     },
-    {
-      id: "2",
-      name: "Jaryq",
-      url: "jaryq",
-      primary_text: "",
-      secondary_text:
-        "Участие в жизни молодежи, в онлайн и офлайн пространстве, для обсуждения важных тем для нашего общества.",
-      end_date: "",
-      is_active: false,
-      is_ended: false,
-      is_soon: true,
-    },
-    {
-      id: "3",
-      name: "Bölme",
-      url: "bolme",
-      primary_text: "",
-      secondary_text:
-        "Комьюнити, которое дает возможность обсуждать актуальные темы в казахо-язычной среде.",
-      end_date: "",
-      is_active: false,
-      is_ended: false,
-      is_soon: true,
-    },
-    {
-      id: "4",
-      name: "G.Grants",
-      url: "g.grants",
-      primary_text: "",
-      secondary_text:
-        "Материальная поддержка учеников старших классов и студентов их уязвимых слоев населения для их дальнейшего обучения в лучших школах и университетах.",
-      end_date: "",
-      is_active: false,
-      is_ended: false,
-      is_soon: true,
-    },
+    // {
+    //   id: "2",
+    //   name: "Jaryq",
+    //   url: "jaryq",
+    //   primary_text: "",
+    //   secondary_text:
+    //     "Участие в жизни молодежи, в онлайн и офлайн пространстве, для обсуждения важных тем для нашего общества.",
+    //   end_date: "",
+    //   is_active: false,
+    //   is_ended: false,
+    //   is_soon: true,
+    // },
+    // {
+    //   id: "3",
+    //   name: "Bölme",
+    //   url: "bolme",
+    //   primary_text: "",
+    //   secondary_text:
+    //     "Комьюнити, которое дает возможность обсуждать актуальные темы в казахо-язычной среде.",
+    //   end_date: "",
+    //   is_active: false,
+    //   is_ended: false,
+    //   is_soon: true,
+    // },
+    // {
+    //   id: "4",
+    //   name: "G.Grants",
+    //   url: "g.grants",
+    //   primary_text: "",
+    //   secondary_text:
+    //     "Материальная поддержка учеников старших классов и студентов их уязвимых слоев населения для их дальнейшего обучения в лучших школах и университетах.",
+    //   end_date: "",
+    //   is_active: false,
+    //   is_ended: false,
+    //   is_soon: true,
+    // },
   ];
 
   useEffect(() => {

@@ -91,7 +91,7 @@ aside,
 }
 
 a {
-  @apply text-primary underline;
+  @apply text-primary underline cursor-pointer;
 }
 
 input:not([type="checkbox"]),

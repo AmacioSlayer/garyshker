@@ -46,7 +46,7 @@ export default function Header() {
         </button>
       </header>
       <aside
-        className={`fixed inset-0 z-[1] h-screen overflow-auto bg-dark -translate-y-full transition-all duration-500 ${
+        className={`fixed inset-0 z-[1] h-screen h-dvh overflow-auto bg-dark -translate-y-full transition-all duration-500 ${
           isMenuOpen ? "visible !translate-y-0" : "invisible"
         }`}
       >
@@ -100,7 +100,7 @@ export default function Header() {
                 </div>
               </span>
             </div>
-            <div className="flex items-center gap-[10px] py-4 border-b border-white-20">
+            {/* <div className="flex items-center gap-[10px] py-4 border-b border-white-20">
               <span className="flex items-center justify-between grow text-[18px] font-medium text-white-30">
                 <span>Jaryq</span>
                 <div className="w-fit flex items-center gap-2 px-3 py-2 rounded-full bg-white-8">
@@ -139,7 +139,7 @@ export default function Header() {
                   </div>
                 </div>
               </span>
-            </div>
+            </div> */}
           </div>
           <div>
             <h6 className="text-sm text-white-50">Остальное</h6>
