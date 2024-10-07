@@ -14,22 +14,13 @@ export default function Footer() {
           <li className="cursor-pointer" onClick={() => navigate("/charity")}>
             Благотворительность
           </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => navigate("/volunteering")}
-          >
+          {/* <li className="cursor-pointer" onClick={() => navigate("/volunteering")}>
             Волонтерство
-          </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => navigate("/partnership")}
-          >
+          </li> */}
+          <li className="cursor-pointer" onClick={() => navigate("/partnership")}>
             Партнерство
           </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => navigate("/nco-documentation")}
-          >
+          <li className="cursor-pointer" onClick={() => navigate("/nco-documentation")}>
             Документация НКО
           </li>
         </ul>
@@ -37,24 +28,16 @@ export default function Footer() {
           <li className="cursor-pointer" onClick={() => navigate("/policy")}>
             Политика конфиденциальности
           </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => navigate("/public-offer")}
-          >
+          <li className="cursor-pointer" onClick={() => navigate("/public-offer")}>
             Публичная оферта
           </li>
-          <li
-            className="cursor-pointer"
-            onClick={() => navigate("/payment-policy")}
-          >
+          <li className="cursor-pointer" onClick={() => navigate("/payment-policy")}>
             Политика онлайн платежей
           </li>
         </ul>
       </div>
       {/* <LangSwitch /> */}
-      <div className="text-sm text-white-30">
-        Garyshker © {`${new Date().getFullYear()}`}
-      </div>
+      <div className="text-sm text-white-30">Garyshker © {`${new Date().getFullYear()}`}</div>
     </footer>
   );
 }

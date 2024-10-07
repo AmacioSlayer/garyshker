@@ -6,9 +6,10 @@ export default function HeroSection() {
   const navigate = useNavigate();
 
   const heroLinks = [
-    { name: "Поддержать проект", path: "/charity" },
-    { name: "Волонтерство", path: "/volunteering" },
-    { name: "Партнество", path: "/partnership" },
+    { name: "Поддержать фонд", path: "/charity", new: false },
+    // { name: "Волонтерство", path: "/volunteering", new: false },
+    { name: "Партнество", path: "/partnership", new: false },
+    { name: "G.store", path: "/g.store", new: true },
   ];
 
   return (
@@ -16,8 +17,7 @@ export default function HeroSection() {
       <Header />
       <div className="flex flex-col px-4 mt-16 items-center justify-evenly grow">
         <h1 className="text-center text-[32px] font-semibold">
-          Делаем образование{" "}
-          <span className="text-primary italic">доступным</span> для каждого
+          Делаем образование <span className="text-primary italic">доступным</span> для каждого
         </h1>
         <div className="flex flex-col gap-5 w-full">
           {heroLinks.map((link, index) => (
@@ -27,8 +27,13 @@ export default function HeroSection() {
               onClick={() => navigate(link.path)}
             >
               <span className="text-xl">{link.name}</span>
-              <div className="w-8 h-8 flex items-center justify-center bg-shadow rounded-lg group-hover/link:bg-primary-gradient group-hover/link:shadow-primary-40">
-                <ArrowNE />
+              <div className="flex items-center gap-2">
+                {link.new && (
+                  <div className="text-[13px] px-3 py-1 rounded-lg bg-primary-gradient shadow-primary-40">New</div>
+                )}
+                <div className="w-8 h-8 flex items-center justify-center bg-shadow rounded-lg group-hover/link:bg-primary-gradient group-hover/link:shadow-primary-40">
+                  <ArrowNE />
+                </div>
               </div>
             </button>
           ))}

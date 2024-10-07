@@ -13,6 +13,8 @@ module.exports = {
         "primary-gradient": "linear-gradient(180deg, #ffa800 0%, #ff8a00 100%)",
         "goal-gradient": "linear-gradient(248.97deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.1) 100%)",
         "menu": "linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.08) 100%)",
+        "carousel-badges": "linear-gradient(0deg, rgba(8, 11, 16, 0) 0%, rgba(8, 11, 16, 0.25) 100%)",
+        "carousel-background": "linear-gradient(180deg, rgba(8, 11, 16, 0) 0%, rgba(8, 11, 16, 0.5) 100%)",
       },
       colors: {
         "primary": "#ffa800",
@@ -27,6 +29,7 @@ module.exports = {
         "white-30": "rgba(255, 255, 255, 0.3)",
         "white-40": "rgba(255, 255, 255, 0.4)",
         "white-50": "rgba(255, 255, 255, 0.5)",
+        "white-60": "rgba(255, 255, 255, 0.6)",
         "white-70": "rgba(255, 255, 255, 0.7)",
         "dark": "#080b10",
         "dark-2": "#212328",

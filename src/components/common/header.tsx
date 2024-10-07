@@ -15,9 +15,7 @@ export default function Header() {
   const [isSticky, setIsSticky] = useState<boolean>(false);
 
   useEffect(() => {
-    isMenuOpen
-      ? document.body.classList.add("modal-open")
-      : document.body.classList.remove("modal-open");
+    isMenuOpen ? document.body.classList.add("modal-open") : document.body.classList.remove("modal-open");
   }, [isMenuOpen]);
 
   useEffect(() => {
@@ -65,16 +63,14 @@ export default function Header() {
               className="flex items-center gap-[10px] py-4 border-b border-white-20 cursor-pointer"
               onClick={() => navigate("/charity")}
             >
-              <span className="grow text-[18px] font-medium">
-                Благотворительность
-              </span>
+              <span className="grow text-[18px] font-medium">Благотворительность</span>
             </div>
-            <div
+            {/* <div
               className="flex items-center gap-[10px] py-4 border-b border-white-20 cursor-pointer"
               onClick={() => navigate("/volunteering")}
             >
               <span className="grow text-[18px] font-medium">Волонтерство</span>
-            </div>
+            </div> */}
             <div
               className="flex items-center gap-[10px] py-4 border-b border-white-20 cursor-pointer"
               onClick={() => navigate("/partnership")}
@@ -94,9 +90,7 @@ export default function Header() {
                   <div className="flex items-center justify-center w-[15px] h-[15px] bg-primary-20 rounded-full">
                     <div className="w-[5px] h-[5px] bg-primary rounded-full"></div>
                   </div>
-                  <div className="text-[13px] font-medium text-primary">
-                    В активной стадии
-                  </div>
+                  <div className="text-[13px] font-medium text-primary">В активной стадии</div>
                 </div>
               </span>
             </div>
@@ -147,9 +141,7 @@ export default function Header() {
               className="flex items-center gap-[10px] py-4 border-b border-white-20 cursor-pointer"
               onClick={() => navigate("/nco-documentation")}
             >
-              <span className="grow text-[18px] font-medium">
-                Документация НКО
-              </span>
+              <span className="grow text-[18px] font-medium">Документация НКО</span>
             </div>
           </div>
           <div className="flex flex-col gap-6">

@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import reportWebVitals from "reportWebVitals";
 import "index.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import MainPage from "components/main-page";
 import NCODocumentation from "components/nco-documentation";
 import Charity from "components/charity";
 import Volunteering from "components/volunteering";
 import Partnership from "components/partnership";
+import GStore from "components/g-store";
+import GStorePaymentModal from "components/modals/g-store-payment-modal";
 import FormSuccess from "components/common/form-success";
 import ProjectPage from "components/projects/project-page";
 import EndedProject from "components/projects/ended-project";
@@ -24,8 +27,10 @@ const App = () => {
         <Route path="/" element={<MainPage />} />
         <Route path="/nco-documentation" element={<NCODocumentation />} />
         <Route path="/charity" element={<Charity />} />
-        <Route path="/volunteering" element={<Volunteering />} />
+        {/* <Route path="/volunteering" element={<Volunteering />} /> */}
         <Route path="/partnership" element={<Partnership />} />
+        <Route path="/g.store" element={<GStore />} />
+        <Route path="/g.store/payment" element={<GStorePaymentModal />} />
         <Route path="/form-success" element={<FormSuccess />} />
         <Route path="/projects/:name" element={<ProjectPage />} />
         <Route path="/projects/:name/:url" element={<EndedProject />} />
@@ -33,18 +38,13 @@ const App = () => {
         <Route path="/policy" element={<Policy />} />
         <Route path="/public-offer" element={<PublicOffer />} />
         <Route path="/payment-policy" element={<PaymentPolicy />} />
-        <Route
-          path="/projects/cosmosomke/apply-for-backpack"
-          element={<ApplyForBackpack />}
-        />
+        <Route path="/projects/cosmosomke/apply-for-backpack" element={<ApplyForBackpack />} />
       </Routes>
     </Router>
   );
 };
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
   <React.StrictMode>
