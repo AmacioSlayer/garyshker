@@ -7,7 +7,7 @@ import garyshkerBadge from "assets/img/garyshker-badge.png";
 import moziBadge from "assets/img/mozi-badge.png";
 import JWLR_1 from "assets/img/garyshker-x-mozi_1.png";
 import JWLR_2 from "assets/img/garyshker-x-mozi_2.png";
-import { getProducts } from "api/products";
+// import { getProducts } from "api/products";
 
 export default function GStore() {
   const navigate = useNavigate();
@@ -19,9 +19,9 @@ export default function GStore() {
   const garyshkerXmozi = (
     <section>
       <div className="flex flex-col gap-6 p-4 pt-16 mt-16">
-        <div className="flex">
+        <div className="flex relative">
           <img src={garyshkerBadge} height={48} width={48} alt="" />
-          <img className="absolute left-14" src={moziBadge} height={48} width={48} alt="" />
+          <img className="absolute left-9" src={moziBadge} height={48} width={48} alt="" />
         </div>
         <div className="flex flex-col gap-2">
           <h3 className="text-4xl font-semibold">GARYSHKER x MOZI</h3>
